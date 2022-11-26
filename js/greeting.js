@@ -1,15 +1,16 @@
 const loginForm = document.querySelector("#login-form");
 const loginInput = loginForm.querySelector("input");
-const loginButton = loginForm.querySelector(" button");
+const loginButton = loginForm.querySelector("button");
 const greeting = document.querySelector("#greeting");
 
 const HIDDEN_CLASSNAME = "hidden";
 const USER_NAME_KEY = "username";
 
 function loginsSubmitListener(event) {
+  event.preventDefault();
   const userName = loginInput.value;
   localStorage.setItem(USER_NAME_KEY, userName);
-  event.preventDefault();
+
   loginForm.classList.add(HIDDEN_CLASSNAME);
   console.log(userName);
   paintGreetings(userName);
